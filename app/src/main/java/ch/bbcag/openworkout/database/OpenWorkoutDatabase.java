@@ -7,16 +7,16 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import ch.bbcag.openworkout.dal.OpenWorkoutDao;
-import ch.bbcag.openworkout.model.workout;
+import ch.bbcag.openworkout.model.Workout;
 
 @Database(
-        entities = {workout.class},
+        entities = {Workout.class},
         version = 1
 )
-public abstract class BadiRoomDatabase extends RoomDatabase {
-    private static volatile BadiRoomDatabase INSTANCE;
+public abstract class OpenWorkoutDatabase extends RoomDatabase {
+    private static volatile OpenWorkoutDatabase INSTANCE;
 
-    protected BadiRoomDatabase() {
+    protected OpenWorkoutDatabase() {
     }
 
     /**
@@ -29,10 +29,10 @@ public abstract class BadiRoomDatabase extends RoomDatabase {
      * @param context Application context
      * @return Database instance
      */
-    public static synchronized BadiRoomDatabase getInstance(Context context) {
+    public static synchronized OpenWorkoutDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            BadiRoomDatabase.class, "BadiDatabase")
+                            OpenWorkoutDatabase.class, "BadiDatabase")
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();
@@ -40,5 +40,5 @@ public abstract class BadiRoomDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    public abstract BadiRoomDao getBadiRoomDao();
+    public abstract OpenWorkoutDao getBadiRoomDao();
 }
