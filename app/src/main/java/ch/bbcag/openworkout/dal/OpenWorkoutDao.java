@@ -13,23 +13,11 @@ import ch.bbcag.openworkout.model.Exercise;
 
 @Dao
 public interface OpenWorkoutDao {
-    @Query("SELECT * FROM myBadi")
+    @Query("SELECT * FROM Workout")
     List<Workout> getAll();
 
-    @Query("SELECT COUNT(*) FROM myBadi WHERE isFavorite = 1")
-    int getFavoritesCount();
-
-    @Query("SELECT * FROM myBadi WHERE isFavorite = 1")
-    List<Workout> getFavorites();
-
-    @Query("SELECT * FROM myBadi WHERE badId = :badId LIMIT 1")
-    Workout getBadiById(int badId);
-
-    @Query("UPDATE myBadi SET isFavorite = 1 WHERE badId = :badId")
-    void setFavorite(int badId);
-
-    @Query("UPDATE myBadi SET isFavorite = 0 WHERE badId = :badId")
-    void removeFavorite(int badId);
+    @Query("SELECT * FROM Workout WHERE workoutId = :workoutId LIMIT 1")
+    Workout getWorkoutById(int workoutId);
 
     @Update
     void update(Workout badi);
