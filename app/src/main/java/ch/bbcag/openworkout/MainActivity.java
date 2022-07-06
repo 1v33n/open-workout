@@ -7,27 +7,23 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends ListActivity {
-    String[] eintrag = {
-            "jonas 1",
-            "ivan 2",
-            "Eintrag 3",
-            "Eintrag 4",
-            "Eintrag 5",
-            "Eintrag 6",
-    };
+import ch.bbcag.openworkout.dal.SetDao;
+import ch.bbcag.openworkout.dal.WorkoutDao;
+import ch.bbcag.openworkout.database.OpenWorkoutDatabase;
+import ch.bbcag.openworkout.model.Set;
+import ch.bbcag.openworkout.model.Workout;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    private SetDao setDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Listview adapter
-        setListAdapter(new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,eintrag));
-    }
-    public void onListItemClick(ListView parent, View v,
-                                int position, long id) {
-        Toast.makeText(this, "Ihre Auswahl : " + eintrag[position],
-                Toast.LENGTH_LONG).show();
+        setDao = OpenWorkoutDatabase.getInstance(getApplicationContext()).getSetDao();;
     }
 }
