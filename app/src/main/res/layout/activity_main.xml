@@ -12,31 +12,42 @@
         android:layout_height="match_parent">
 
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_weight="1">
 
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_dumbbell" />
+                android:id="@+id/imageView"
+                android:layout_width="71dp"
+                android:layout_height="58dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+
+                android:src="@drawable/ic_dumbbell"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.047"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="0dp" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="257dp"
+                android:layout_height="85dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
                 android:text="OPEN WORKOUT"
                 android:textColor="#000"
-                android:textSize="40sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText" />
+                android:textSize="32dp"
 
-        </RelativeLayout>
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="6dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <RelativeLayout
@@ -46,7 +57,8 @@
 
             <ListView
                 android:id="@+id/becken_infos"
-                android:layout_width="match_parent"/>
+                android:layout_width="match_parent"
+                android:layout_weight="1" />
 
         </RelativeLayout>
 
@@ -57,15 +69,27 @@
 
 
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="250dp"
                 android:src="@drawable/ic_house_solid" />
 
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="250dp"
+                android:layout_marginEnd="50dp"
                 android:src="@drawable/ic_graphic" />
+
+
         </RelativeLayout>
     </LinearLayout>
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
