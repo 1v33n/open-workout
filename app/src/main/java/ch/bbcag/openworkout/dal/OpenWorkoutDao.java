@@ -9,6 +9,7 @@ import java.util.List;
 
 import ch.bbcag.openworkout.model.Workout;
 import ch.bbcag.openworkout.model.Set;
+import ch.bbcag.openworkout.model.WorkoutSetRef;
 import ch.bbcag.openworkout.model.Exercise;
 
 @Dao
@@ -19,9 +20,16 @@ public interface OpenWorkoutDao {
     @Query("SELECT * FROM Workout WHERE workoutId = :workoutId LIMIT 1")
     Workout getWorkoutById(int workoutId);
 
-    @Update
-    void update(Workout badi);
+
+    @Query("SELECT  FROM Set WHERE workoutId = :workoutId LIMIT 1")
+    Workout getSetsByWorkoutId(int workoutId, int setId);
 
     @Insert
-    void insert(Workout badi);
+    void insert(Set set);
+
+    @Update
+    void update(Workout workout);
+
+    @Insert
+    void insert(Workout workout);
 }
