@@ -15,7 +15,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="0.75">
 
             <LinearLayout
                 android:id="@+id/LinearLayout7"
@@ -143,8 +143,6 @@
                 android:layout_marginTop="0dp"
                 android:gravity="center"
                 android:orientation="horizontal">
-
-
 
 
                 <ImageView
