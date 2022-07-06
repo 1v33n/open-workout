@@ -173,23 +173,22 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
-                    android:textColor="@android:color/white"
-                    app:backgroundTint="#D2FF0000"
-                    android:textSize="16dp"
                     android:gravity="center"
-                    android:text="Canel"/>
+                    android:text="Canel"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp"
+                    app:backgroundTint="#D2FF0000" />
 
                 <Button
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
-                    android:textColor="@android:color/white"
-                    app:backgroundTint="#42A658"
-
-                    android:textSize="16dp"
                     android:gravity="center"
-                    android:text="Save"/>
+                    android:text="Save"
 
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp"
+                    app:backgroundTint="#42A658" />
 
 
             </LinearLayout>
@@ -220,7 +219,6 @@
                 android:layout_marginStart="250dp"
                 android:layout_marginEnd="50dp"
                 android:src="@drawable/ic_graphic" />
-
 
         </RelativeLayout>
     </LinearLayout>
