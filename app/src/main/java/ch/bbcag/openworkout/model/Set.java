@@ -42,14 +42,13 @@ public class Set {
         this.reps = reps;
     }
 
-    public List<Set> getSet() {
-        return set;
+    public int getDate() {
+        return date;
     }
 
-    public void setSet(List<Set> set) {
-        this.set = set;
+    public void setDate(int date) {
+        this.date = date;
     }
-
     @PrimaryKey
     @ColumnInfo(name = "setId")
     private int id;
@@ -63,10 +62,11 @@ public class Set {
     @ColumnInfo(name = "reps")
     private int reps;
 
-
-    @Ignore // Ignore -> not in database
-    private List<Set> set;
+    @ColumnInfo(name = "date")
+    private int date;
 
     public Set() {
     }
+
+
 }

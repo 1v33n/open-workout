@@ -6,17 +6,13 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import ch.bbcag.openworkout.dal.WorkoutDao;
 import ch.bbcag.openworkout.dal.SetDao;
-import ch.bbcag.openworkout.dal.SetWithExerciseDao;
 import ch.bbcag.openworkout.dal.ExerciseDao;
 import ch.bbcag.openworkout.model.Exercise;
 import ch.bbcag.openworkout.model.Set;
-import ch.bbcag.openworkout.model.SetExerciseRef;
-import ch.bbcag.openworkout.model.Workout;
 
 @Database(
-        entities = {Workout.class, Set.class, Exercise.class, SetExerciseRef.class},
+        entities = { Set.class, Exercise.class},
         version = 1
 )
 public abstract class OpenWorkoutDatabase extends RoomDatabase {
@@ -46,8 +42,6 @@ public abstract class OpenWorkoutDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    public abstract WorkoutDao getWorkoutDao();
     public abstract SetDao getSetDao();
     public abstract ExerciseDao getExerciseDao();
-    public abstract SetWithExerciseDao getSetWithExerciseDao();
-}
+    }
