@@ -6,6 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floating_action_button"
+                android:layout_width="wrap_content"
+                android:layout_height="195dp"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="130dp"
+                android:layout_marginRight="30dp"
+                android:contentDescription="@string/fab_content_desc"
+                app:srcCompat="@drawable/ic_circleplus"
+                tools:ignore="MissingConstraints" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </RelativeLayout>
+
+
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -62,7 +84,11 @@
 
             <ListView
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent" />
+                android:layout_height="fill_parent">
+
+
+            </ListView>
+
 
         </RelativeLayout>
 
