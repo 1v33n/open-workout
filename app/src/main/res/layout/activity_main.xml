@@ -19,24 +19,22 @@
 
 
             <ImageView
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_dumbbell" />
 
             <TextView
                 android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="OPEN WORKOUT"
-            android:textColor="#000"
-            android:textSize="40dp"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="OPEN WORKOUT"
+                android:textColor="#000"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
 
         </RelativeLayout>
 
@@ -48,8 +46,7 @@
 
             <ListView
                 android:id="@+id/becken_infos"
-                android:layout_width="match_parent"
-                android:layout_weight="1" />
+                android:layout_width="match_parent"/>
 
         </RelativeLayout>
 
@@ -68,7 +65,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_graphic" />
-
         </RelativeLayout>
     </LinearLayout>
 
