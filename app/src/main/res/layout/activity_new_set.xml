@@ -15,7 +15,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight="0.75">
+            android:layout_weight="0.75"
+            android:layout_height="160dp">
 
 
             <LinearLayout
@@ -55,7 +56,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:layout_height="match_parent">
 
             <EditText
                 android:id="@+id/simpleEditText2"
@@ -72,7 +74,8 @@
         <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_height="160dp">
 
             <ImageView
                 android:layout_width="100dp"
