@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,13 +20,16 @@ import ch.bbcag.openworkout.model.Set;
 import ch.bbcag.openworkout.model.Workout;
 import android.widget.Button;
 import android.view.View.OnClickListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private SetDao setDao;
-    private ImageView imageView; //
-    private com.google.android.material.floatingactionbutton.FloatingActionButton floatingButton;
+    private ImageView imageView;
+    private FloatingActionButton floatingButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.stats_button);
         //imageView.setOnClickListener(this);
 
-        floatingButton = findViewById(R.id.floating_action_button);
-        //floatingButton.setOnClickListener(this);
+
+        floatingButton = (FloatingActionButton)findViewById(R.id.new_workout_button);
 
 
         imageView.setOnClickListener(new OnClickListener() {
@@ -57,28 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         });
 
-
-        /*
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
-            {
-                // starting background task to update product
-                Intent fp = new Intent(getApplicationContext(),NewWorkoutActivity.class);
-                startActivity(fp);
-            }
-        });
-        */
-
     }
-/*
-    @Override
-    public void onClick(View v) {
-        // TODO Auto-generated method stub
-        Intent i = new Intent(getApplicationContext(), NewWorkoutActivity.class);
-        startActivity(i);
-        //setContentView(R.layout.avtivity_next);
-    }
-    */
 }
 
 
