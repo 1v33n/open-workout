@@ -13,7 +13,7 @@ import ch.bbcag.openworkout.model.Workout;
 @Dao
 public interface SetDao {
 
-    @Query("SELECT s.setId, s.date, e.name, s.weight, s.reps " +
+    @Query("SELECT s.setId, s.exerciseId, s.date, e.name, s.weight, s.reps " +
             "FROM `Set` AS s " +
             "JOIN Exercise AS e " +
             "ON s.exerciseId = e.exerciseId")
