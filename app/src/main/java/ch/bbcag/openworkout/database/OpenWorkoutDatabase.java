@@ -13,7 +13,7 @@ import ch.bbcag.openworkout.model.Set;
 
 @Database(
         entities = { Set.class, Exercise.class},
-        version = 1
+        version = 3
 )
 public abstract class OpenWorkoutDatabase extends RoomDatabase {
     private static volatile OpenWorkoutDatabase INSTANCE;
@@ -34,7 +34,7 @@ public abstract class OpenWorkoutDatabase extends RoomDatabase {
     public static synchronized OpenWorkoutDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            OpenWorkoutDatabase.class, "BadiDatabase")
+                            OpenWorkoutDatabase.class, "OpenWorkout Database")
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();

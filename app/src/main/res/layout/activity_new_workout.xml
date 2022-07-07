@@ -91,7 +91,7 @@
                     tools:layout_editor_absoluteY="6dp" />
 
                 <EditText
-                    android:id="@+id/simpleEditText2"
+                    android:id="@+id/exercise_name"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content" />
 
@@ -117,7 +117,7 @@
                     tools:layout_editor_absoluteY="6dp" />
 
                 <EditText
-                    android:id="@+id/simpleEditText4"
+                    android:id="@+id/exercise_weight"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />
 
@@ -141,7 +141,7 @@
                     tools:layout_editor_absoluteY="6dp" />
 
                 <EditText
-                    android:id="@+id/simpleEditText5"
+                    android:id="@+id/exercise_reps"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content" />
 
@@ -181,6 +181,7 @@
 
 
                 <Button
+                    android:id="@+id/canel_button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
@@ -191,6 +192,7 @@
                     app:backgroundTint="#D2FF0000" />
 
                 <Button
+                    android:id="@+id/save_button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"

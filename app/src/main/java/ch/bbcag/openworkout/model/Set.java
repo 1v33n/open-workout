@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity(tableName = "Set")
@@ -18,11 +20,11 @@ public class Set {
         this.id = id;
     }
 
-    public String getExerciseId() {
+    public int getExerciseId() {
         return exerciseId;
     }
 
-    public void setExerciseId(String exerciseId) {
+    public void setExerciseId(int exerciseId) {
         this.exerciseId = exerciseId;
     }
 
@@ -42,19 +44,19 @@ public class Set {
         this.reps = reps;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "setId")
     private int id;
 
     @ColumnInfo(name = "exerciseId")
-    private String exerciseId;
+    private int exerciseId;
 
     @ColumnInfo(name = "weight")
     private int weight;
@@ -63,9 +65,15 @@ public class Set {
     private int reps;
 
     @ColumnInfo(name = "date")
-    private int date;
+    private String date;
 
     public Set() {
+    }
+    public Set(int exerciseId, int weight, int reps, String date) {
+        this.exerciseId = exerciseId;
+        this.weight = weight;
+        this.reps = reps;
+        this.date = date;
     }
 
 

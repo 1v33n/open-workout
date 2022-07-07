@@ -4,14 +4,15 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Update;
 
+import ch.bbcag.openworkout.model.Exercise;
 import ch.bbcag.openworkout.model.Set;
 
 @Dao
 public interface ExerciseDao {
 
     @Update
-    void update(Set set);
+    void update(Exercise set);
 
     @Insert
-    void insert(Set set);
+    void insert(Exercise set);
 }
