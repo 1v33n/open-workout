@@ -20,7 +20,7 @@ public class Exercise {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -28,7 +28,7 @@ public class Exercise {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {

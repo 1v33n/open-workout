@@ -1,29 +1,25 @@
 package ch.bbcag.openworkout;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import ch.bbcag.openworkout.dal.ExerciseDao;
+import ch.bbcag.openworkout.model.SetAndExercise;
 import ch.bbcag.openworkout.dal.SetDao;
-import ch.bbcag.openworkout.dal.WorkoutDao;
 import ch.bbcag.openworkout.database.OpenWorkoutDatabase;
 import ch.bbcag.openworkout.model.Exercise;
 import ch.bbcag.openworkout.model.Set;
-import ch.bbcag.openworkout.model.Workout;
-import android.widget.Button;
+
 import android.view.View.OnClickListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -34,21 +30,35 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageView;
     private FloatingActionButton floatingButton;
 
-
     private ExerciseDao exerciseDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setDao = OpenWorkoutDatabase.getInstance(getApplicationContext()).getSetDao();
         exerciseDao = OpenWorkoutDatabase.getInstance(getApplicationContext()).getExerciseDao();
-        Exercise pullup = new Exercise(("Pull-Up"));
-        exerciseDao.insert(pullup);
-        setDao.insert(new Set(1, 100, 15, LocalDateTime.now().toString()));
-        setDao.insert(new Set(1,105, 11, LocalDateTime.now().toString()));
-        setDao.insert(new Set(pullup.getId(), 110, 8, LocalDateTime.now().toString()));
+        //Testing DB
+//        setDao.deleteAll();
+//        exerciseDao.deleteAll();
+
+//        Exercise pullup = new Exercise("Pull-Up");
+//        Exercise pushup = new Exercise("Push-Up");
+//        Exercise burpee = new Exercise("Burpee");
+//        exerciseDao.insert(pullup);
+//        exerciseDao.insert(pushup);
+//        exerciseDao.insert(burpee);
+//        pullup = exerciseDao.getExerciseByName(pullup.getName());
+//        pushup = exerciseDao.getExerciseByName(pushup.getName());
+//        burpee = exerciseDao.getExerciseByName(burpee.getName());
+////        pullup = exerciseDao.getExerciseByName("Pull-Up");
+//
+//        setDao.insert(new Set(pullup.getId(), 100, 15, LocalDateTime.now().toString()));
+//        setDao.insert(new Set(pushup.getId(),105, 11, LocalDateTime.now().toString()));
+//        setDao.insert(new Set(burpee.getId(), 115, 8, LocalDateTime.now().toString()));
         setContentView(R.layout.activity_main);
-        setDao = OpenWorkoutDatabase.getInstance(getApplicationContext()).getSetDao();;
+        //
+
 
 
         imageView = findViewById(R.id.stats_button);
@@ -73,6 +83,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 }
         });
+        addSetsToList();
+    }
 
+    private void addSetsToList(){
+//        final List<SetAndExercise> sets = new ArrayList<>();
+        setDao = OpenWorkoutDatabase.getInstance(getApplicationContext()).getSetDao();
+        List<SetAndExercise> sets = setDao.getSetsWithExercises();
+//        sets.addAll(sets);
+
+        ArrayAdapter<SetAndExercise> adapter = new ArrayAdapter<SetAndExercise>(this, android.R.layout.simple_list_item_1, sets);
+        ListView listView = (ListView) findViewById(R.id.sets_and_exercises);
+        listView.setAdapter(adapter);
     }
 }

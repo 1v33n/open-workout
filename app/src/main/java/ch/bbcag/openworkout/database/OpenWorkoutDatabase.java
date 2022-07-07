@@ -13,7 +13,7 @@ import ch.bbcag.openworkout.model.Set;
 
 @Database(
         entities = { Set.class, Exercise.class},
-        version = 3
+        version = 5
 )
 public abstract class OpenWorkoutDatabase extends RoomDatabase {
     private static volatile OpenWorkoutDatabase INSTANCE;

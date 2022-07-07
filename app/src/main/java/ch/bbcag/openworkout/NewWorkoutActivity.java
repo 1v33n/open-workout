@@ -14,7 +14,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.time.LocalDateTime;
 import java.util.regex.Pattern;
+
+import ch.bbcag.openworkout.dal.ExerciseDao;
+import ch.bbcag.openworkout.dal.SetDao;
+import ch.bbcag.openworkout.database.OpenWorkoutDatabase;
+import ch.bbcag.openworkout.model.Exercise;
+import ch.bbcag.openworkout.model.Set;
 
 public class NewWorkoutActivity extends AppCompatActivity {
     private ImageView imageViewHome; //
@@ -26,6 +33,10 @@ public class NewWorkoutActivity extends AppCompatActivity {
     private Pattern exercise = Pattern.compile("^[A-Za-zÄÖÜäöüß -]{2,}$");
     private Pattern weight = Pattern.compile("^[0-9]+$");
     private Pattern reps = Pattern.compile("^[0-9]+$");
+
+
+    private ExerciseDao exerciseDao;
+    private SetDao setDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +96,20 @@ public class NewWorkoutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isValid(nameExercise.getText().toString(), exercise) && isValid(weightExercise.getText().toString(), weight) && isValid(repsExercise.getText().toString(), reps)){
+                    setDao = OpenWorkoutDatabase.getInstance(getApplicationContext()).getSetDao();
+                    exerciseDao = OpenWorkoutDatabase.getInstance(getApplicationContext()).getExerciseDao();
+
+                    Exercise newExercise = new Exercise(nameExercise.getText().toString());
+                    exerciseDao.insert(newExercise);
+                    newExercise = exerciseDao.getExerciseByName(newExercise.getName());
+
+                    setDao.insert(new Set(newExercise.getId(),
+                            Integer.parseInt(weightExercise.getText().toString()),
+                            Integer.parseInt(repsExercise.getText().toString()),
+                            LocalDateTime.now().toString()
+                            ));
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
-
-                    //Code zum einfügen der Daten in die Datenbank
                 }
                 else{
                     //Dialogfenster

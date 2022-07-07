@@ -1,27 +1,29 @@
 package ch.bbcag.openworkout.dal;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import java.util.List;
 
 import ch.bbcag.openworkout.model.Set;
-import ch.bbcag.openworkout.model.Workout;
+import ch.bbcag.openworkout.model.SetAndExercise;
 
 @Dao
 public interface SetDao {
-
-    @Query("SELECT s.setId, s.exerciseId, s.date, e.name, s.weight, s.reps " +
-            "FROM `Set` AS s " +
-            "JOIN Exercise AS e " +
-            "ON s.exerciseId = e.exerciseId")
-    List<Set> getAll();
+    @Transaction
+    @Query("SELECT * FROM `Set` JOIN Exercise ON Exercise.exerciseId = `Set`.exerciseId")
+    List<SetAndExercise> getSetsWithExercises();
 
     @Update
     void update(Set set);
 
     @Insert
     void insert(Set set);
+
+    @Query("Delete from `Set`")
+    void deleteAll();
 }

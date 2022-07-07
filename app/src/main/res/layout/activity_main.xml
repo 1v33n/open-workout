@@ -83,6 +83,7 @@
             tools:context="com.example.NUTZERNAME.myapplication.MainActivity"> -->
 
             <ListView
+                android:id="@+id/sets_and_exercises"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"></ListView>
 
