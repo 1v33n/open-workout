@@ -13,9 +13,13 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight="0.75">
+            android:layout_height="160dp"
+
+
+            android:layout_weight="0.75"
+
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/LinearLayout7"
@@ -26,6 +30,7 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 tools:ignore="MissingConstraints">
+
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="71dp"
@@ -36,11 +41,11 @@
                     tools:layout_editor_absoluteY="0dp" />
 
                 <TextView
-                    android:gravity="center"
                     android:id="@+id/textView"
                     android:layout_width="257dp"
                     android:layout_height="85dp"
                     android:layout_marginStart="8dp"
+                    android:gravity="center"
                     android:text="OPEN WORKOUT"
                     android:textColor="#000"
                     android:textSize="32dp"
@@ -56,6 +61,10 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+
+
+            android:layout_height="match_parent"
+
             android:layout_weight="4"
             android:orientation="vertical">
 
@@ -197,7 +206,11 @@
         <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight="1">
+
+
+            android:layout_height="160dp"
+
+            android:layout_weight="2">
 
 
             <ImageView
