@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,13 +20,16 @@ import ch.bbcag.openworkout.model.Set;
 import ch.bbcag.openworkout.model.Workout;
 import android.widget.Button;
 import android.view.View.OnClickListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private SetDao setDao;
-    private ImageView imageView; //
-    private com.google.android.material.floatingactionbutton.FloatingActionButton floatingButton;
+    private ImageView imageView;
+    private FloatingActionButton floatingButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         imageView = findViewById(R.id.stats_button);
+        //imageView.setOnClickListener(this);
 
-        floatingButton = findViewById(R.id.floating_action_button);
+
+        floatingButton = (FloatingActionButton)findViewById(R.id.new_workout_button);
 
 
         imageView.setOnClickListener(new OnClickListener() {
@@ -54,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 }
         });
+
     }
 }
 
