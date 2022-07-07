@@ -35,10 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         imageView = findViewById(R.id.stats_button);
-        //imageView.setOnClickListener(this);
 
         floatingButton = findViewById(R.id.floating_action_button);
-        //floatingButton.setOnClickListener(this);
 
 
         imageView.setOnClickListener(new OnClickListener() {
@@ -56,29 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 }
         });
-
-
-        /*
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
-            {
-                // starting background task to update product
-                Intent fp = new Intent(getApplicationContext(),NewWorkoutActivity.class);
-                startActivity(fp);
-            }
-        });
-        */
-
     }
-/*
-    @Override
-    public void onClick(View v) {
-        // TODO Auto-generated method stub
-        Intent i = new Intent(getApplicationContext(), NewWorkoutActivity.class);
-        startActivity(i);
-        //setContentView(R.layout.avtivity_next);
-    }
-    */
 }
 
 
