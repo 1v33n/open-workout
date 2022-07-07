@@ -9,7 +9,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -23,20 +22,23 @@
                 android:layout_marginRight="30dp"
                 app:srcCompat="@drawable/ic_circleplus"
                 tools:ignore="MissingConstraints"/>
-
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </RelativeLayout>
+
+
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="horizontal"
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_weight="0.75">
+            android:layout_height="160dp"
+            android:layout_weight="1.5">
+
 
             <LinearLayout
                 android:id="@+id/LinearLayout7"
@@ -47,11 +49,11 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 tools:ignore="MissingConstraints">
-
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="71dp"
                     android:layout_height="58dp"
+
                     android:src="@drawable/ic_dumbbell"
                     tools:ignore="MissingConstraints"
                     tools:layout_editor_absoluteY="0dp" />
@@ -75,11 +77,18 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_weight="4"
+
+
             android:layout_height="match_parent"
+
+            android:layout_weight="4"
             tools:context="${packageName}.${activityClass}">
             <!-- Alternativ fixe Angaben statt Variablen:
             tools:context="com.example.NUTZERNAME.myapplication.MainActivity"> -->
+
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"></ListView>
 
 
         </RelativeLayout>
@@ -87,8 +96,12 @@
         <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+
+
+            android:layout_height="160dp"
+
             android:layout_weight="2">
+
 
             <ImageView
                 android:layout_width="100dp"
@@ -107,6 +120,7 @@
                 android:layout_marginStart="250dp"
                 android:layout_marginEnd="50dp"
                 android:src="@drawable/ic_graphic" />
+
 
         </RelativeLayout>
     </LinearLayout>
