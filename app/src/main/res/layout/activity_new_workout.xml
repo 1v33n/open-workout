@@ -6,6 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -15,11 +18,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"
-
-
             android:layout_weight="0.75"
-
             android:orientation="horizontal">
+
+
 
             <LinearLayout
                 android:id="@+id/LinearLayout7"
@@ -30,6 +32,7 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 tools:ignore="MissingConstraints">
+
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -61,12 +64,11 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-
-
             android:layout_height="match_parent"
-
             android:layout_weight="4"
             android:orientation="vertical">
+
+
 
             <LinearLayout
                 android:id="@+id/LinearLayout2"
