@@ -18,6 +18,12 @@ public interface SetDao {
     @Query("SELECT * FROM `Set` JOIN Exercise ON Exercise.exerciseId = `Set`.exerciseId")
     List<SetAndExercise> getSetsWithExercises();
 
+    @Transaction
+    @Query("SELECT * FROM `Set` " +
+            "JOIN Exercise ON Exercise.exerciseId = `Set`.exerciseId " +
+            "WHERE Exercise.name = :name LIMIT 1")
+    SetAndExercise getSetsByExercises(String name);
+
     @Update
     void update(Set set);
 

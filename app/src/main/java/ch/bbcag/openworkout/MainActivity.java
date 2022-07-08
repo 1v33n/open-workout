@@ -87,13 +87,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addSetsToList(){
-//        final List<SetAndExercise> sets = new ArrayList<>();
         setDao = OpenWorkoutDatabase.getInstance(getApplicationContext()).getSetDao();
         List<SetAndExercise> sets = setDao.getSetsWithExercises();
-//        sets.addAll(sets);
-
         ArrayAdapter<SetAndExercise> adapter = new ArrayAdapter<SetAndExercise>(this, android.R.layout.simple_list_item_1, sets);
-        ListView listView = (ListView) findViewById(R.id.sets_and_exercises);
+        ListView listView = findViewById(R.id.sets_and_exercises);
         listView.setAdapter(adapter);
     }
 }
