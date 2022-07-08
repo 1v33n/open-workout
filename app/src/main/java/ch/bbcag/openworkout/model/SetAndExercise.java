@@ -25,6 +25,5 @@ public class SetAndExercise {
                 "\n" + exercise.getName() +
                 "\n Reps: \t"+ sets.get(0).getWeight() +
                 "\n Weight: \t"+ sets.get(0).getReps();
-
     }
 }
