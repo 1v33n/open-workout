@@ -126,8 +126,6 @@ public class NewWorkoutActivity extends AppCompatActivity {
             nameError.setError(null);
             // do async task
         }
-
-
         EditText repsError = (EditText)findViewById(R.id.exercise_reps);
         if(repsError.getText().toString().length() == 0 )
             repsError.setError("Reps is required!");
