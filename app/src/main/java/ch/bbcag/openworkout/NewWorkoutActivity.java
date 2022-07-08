@@ -1,5 +1,6 @@
 package ch.bbcag.openworkout;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,9 +46,32 @@ public class NewWorkoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_workout);
 
 
-        imageViewHome = findViewById(R.id.home_button);
+/*
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        actionBar.setTitle("Open Workout");
+        */
+
+
+
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setElevation(0);
+        View view = getSupportActionBar().getCustomView();
+        //TextView name = view.findViewById(R.id.name);
+        //name.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
         imageViewStatistics = findViewById(R.id.stats_button);
-        addNewSet = findViewById(R.id.newSet);
         canelButton = findViewById(R.id.canel_button);
         saveButton = findViewById(R.id.save_button);
         nameExercise = findViewById(R.id.exercise_name);
@@ -54,13 +79,7 @@ public class NewWorkoutActivity extends AppCompatActivity {
         repsExercise = findViewById(R.id.exercise_reps);
 
 
-        imageViewHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         imageViewStatistics.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,20 +88,6 @@ public class NewWorkoutActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        addNewSet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView textView = new TextView(getApplicationContext());
-                textView.setGravity(Gravity.CENTER_VERTICAL);
-                textView.setText("New TextView");
-
-                //RelativeLayout layout = (RelativeLayout)findViewByID(R.id.layout_id);
-                //layout.addView(textView);
-            }
-        });
-
 
         canelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,5 +170,17 @@ public class NewWorkoutActivity extends AppCompatActivity {
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return(true);
+        }
+
+        return(super.onOptionsItemSelected(item));
+    }
+
 
 }

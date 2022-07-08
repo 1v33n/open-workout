@@ -1,12 +1,15 @@
 package ch.bbcag.openworkout;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.time.LocalDateTime;
@@ -21,6 +24,8 @@ import ch.bbcag.openworkout.model.Exercise;
 import ch.bbcag.openworkout.model.Set;
 
 import android.view.View.OnClickListener;
+import android.widget.Toast;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
@@ -31,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton floatingButton;
 
     private ExerciseDao exerciseDao;
+    private ImageView imageViewStatistics; //
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +66,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //
 
+        /*
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Open Workout");
+        */
 
 
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setElevation(0);
+        View view = getSupportActionBar().getCustomView();
+        //TextView name = view.findViewById(R.id.name);
+        //name.setOnClickListener(new View.OnClickListener() {
+
+
+
+        imageViewStatistics = findViewById(R.id.stats_button);
         imageView = findViewById(R.id.stats_button);
         //imageView.setOnClickListener(this);
 
 
         floatingButton = (FloatingActionButton)findViewById(R.id.new_workout_button);
 
+        imageViewStatistics.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StatisticsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         imageView.setOnClickListener(new OnClickListener() {
             @Override
@@ -96,4 +126,5 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.sets_and_exercises);
         listView.setAdapter(adapter);
     }
+
 }
